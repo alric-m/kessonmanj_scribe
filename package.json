@@ -1,0 +1,7 @@
+{
+  "name": "kessonmanj_scribe",
+  "private": true,
+  "dependencies": {
+    "bulma": "^0.8.0"
+  }
+}
