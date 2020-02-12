@@ -1,0 +1,6 @@
+div
+  .columns.is-multiline.is-desktop
+    - @recipes.each do |recipe|
+      = render recipe
+div.pagniation
+  = will_paginate @recipes

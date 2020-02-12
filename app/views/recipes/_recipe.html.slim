@@ -1,0 +1,13 @@
+.column.is-one-third
+  .box
+    article.media
+      .media-left
+        figure.image.is-64x64
+          img src=recipe_image(recipe.image) alt="Image"
+      .media-content
+        .content
+          p
+            strong= recipe.author
+            small= " #{recipe.budget} #{recipe.difficulty}"
+            br
+            = recipe.name
