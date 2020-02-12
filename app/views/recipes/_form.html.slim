@@ -1,0 +1,40 @@
+section.search_form
+  = form_with url: recipes_path, local: true, method: :get do |form|
+    .columns
+      .column.field
+        label.label Name
+        .control
+          = form.text_field :name, class: "input"
+      .column.field
+        label.label Author
+        .control.has-icons-left
+          = form.text_field :author, class: "input"
+          span.icon.is-small.is-left
+            i.fas.fa-user
+      .column.field
+        label.label Author
+        .control
+          = form.text_field :people_quantity, class: "input", type: "number"
+      .column.field
+        label.label Ingredient
+        .control
+          = form.text_field :ingredient, class: "input"
+    .columns
+      .column.field
+        label.label Budget
+        .control
+          .select.is-multiple
+            = form.select :budget, budget_options, { include_blank: true }
+      .column.field
+        label.label Difficulté
+        .control
+          .select.is-multiple
+            = form.select :difficulty, difficulty_options, { include_blank: true }
+      .column.field
+        label.label Tags
+        .control
+          .select.is-multiple
+            = form.select :tags, tags_options, { multiple: true, include_blank: true }, { multiple: true, include_blank: true }
+    .field.is-grouped
+      .control
+        = form.submit "Find", class: "button is-link"
