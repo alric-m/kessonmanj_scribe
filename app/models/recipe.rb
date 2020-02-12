@@ -1,10 +1,9 @@
 class Recipe < ApplicationRecord
 
-  #acts_as_taggable
+  acts_as_taggable
 
   has_many :recipes_ingredients
   has_many :ingredients, through: :recipes_ingredients
-  accepts_nested_attributes_for :ingredients
 
   #validates :rate, presence: true
   #validates :author_tip, presence: true
