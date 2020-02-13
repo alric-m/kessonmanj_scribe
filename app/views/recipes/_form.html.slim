@@ -2,39 +2,43 @@ section.search_form
   = form_with url: recipes_path, local: true, method: :get do |form|
     .columns
       .column.field
-        label.label Name
+        label.label Nom de la recette
         .control
-          = form.text_field :name, class: "input"
+          = form.text_field :name, value: params[:name], class: "input"
       .column.field
-        label.label Author
+        label.label Auteur
         .control.has-icons-left
-          = form.text_field :author, class: "input"
+          = form.text_field :author, value: params[:author], class: "input"
           span.icon.is-small.is-left
             i.fas.fa-user
       .column.field
-        label.label Author
+        label.label Nombre de personnes
         .control
-          = form.text_field :people_quantity, class: "input", type: "number"
+          = form.text_field :people_quantity, value: params[:people_quantity], \
+            class: "input", type: "number"
       .column.field
         label.label Ingredient
         .control
-          = form.text_field :ingredient, class: "input"
+          = form.text_field :ingredient, value: params[:ingredient], \
+            class: "input"
     .columns
       .column.field
         label.label Budget
         .control
           .select.is-multiple
-            = form.select :budget, budget_options, { include_blank: true }
+            = form.select :budget, budget_options(params[:budget]), \
+              { include_blank: "Sélectionner" }
       .column.field
         label.label Difficulté
         .control
           .select.is-multiple
-            = form.select :difficulty, difficulty_options, { include_blank: true }
+            = form.select :difficulty, difficulty_options(params[:difficulty]), \
+              { include_blank: "Sélectionner" }
       .column.field
         label.label Tags
         .control
           .select.is-multiple
-            = form.select :tags, tags_options, { multiple: true, include_blank: true }, { multiple: true, include_blank: true }
+            = form.select :tags, tags_options(params[:tags]), {  }, { multiple: true}
     .field.is-grouped
       .control
         = form.submit "Find", class: "button is-link"

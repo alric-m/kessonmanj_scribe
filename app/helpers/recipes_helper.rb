@@ -16,15 +16,21 @@ module RecipesHelper
     end
   end
 
-  def budget_options
-    ["bon marché", "Coût moyen", "assez cher"]
+  def budget_options budget
+    options_for_select(
+      ["bon marché", "Coût moyen", "assez cher"],
+      budget
+    )
   end
 
-  def difficulty_options
-    ["très facile", "Niveau moyen", "facile", "difficile"]
+  def difficulty_options difficulty
+    options_for_select(
+      ["très facile", "facile", "Niveau moyen", "difficile"],
+      difficulty
+    )
   end
 
-  def tags_options
-    ActsAsTaggableOn::Tag.all.collect {|p| [ p.name, p.id ] }
+  def tags_options tags
+    options_for_select(@tag_names, tags)
   end
 end
