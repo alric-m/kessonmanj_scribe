@@ -32,7 +32,7 @@ class SearchService
 
   def search_by_name name
     return @objects if name.blank?
-    @objects = @objects.where(name: name)
+    @objects = @objects.where("recipes.name LIKE ?", "%#{name}%")
   end
 
   def search_by_tags tags
