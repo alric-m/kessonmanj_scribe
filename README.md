@@ -1,24 +1,30 @@
-# README
+# Kessonmanj
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+Live on https://guarded-lake-13524.herokuapp.com
 
-Things you may want to cover:
+* Ruby version : 2.4.1
 
-* Ruby version
+* Rails version : 5.2.4.1
 
-* System dependencies
+## Considérations sur le modèle de données
+Le modèle de données est constitué de deux modèles `Recipe` et `Ingredient` reliés par une table de jointure.
+Mon idée initiale était de séparer, lors de l'import des recettes, le dosage des ingrédients, et de placer placer le dosage dans la table de jointure, ceci pour deux raisons :
 
-* Configuration
+* Éviter les doublons dans la table des ingrédients
 
-* Database creation
+* Pouvoir adapter n'importe quelle recette à n'importe quel nombre d'invités
 
-* Database initialization
+Le manque de temps pour gérer le nombre de cas particulier (ex: `1 boîte de Lait Concentré Sucré Nestlé 397 g`) et le nombre d'ingrédients (27867) m'en ont dissuadé, mais c'est la direction qu'aurait du prendre, selon moi, ce projet dans la "vrai vie".
 
-* How to run the test suite
+## TODO
 
-* Services (job queues, cache servers, search engines, etc.)
+* Voir section précédente
 
-* Deployment instructions
+* Recherche par plusieurs ingrédients
 
-* ...
+* Page `recipes#show`
+
+* I18n
+
+* Meilleure UI/UX
