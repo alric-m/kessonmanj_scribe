@@ -1,4 +1,4 @@
-.column.is-one-third
+.column.is-half
   .box
     article.media
       .media-left
@@ -7,7 +7,12 @@
       .media-content
         .content
           p
-            strong= recipe.author
-            small= " #{recipe.budget} #{recipe.difficulty}"
+            strong= recipe.name
+            small= " #{recipe.difficulty} #{format_budget(recipe.budget)}"
             br
-            = recipe.name
+            = "Par #{recipe.author}"
+        nav.level.is-mobile
+          .level-left
+            - recipe.tags.each do |tag|
+              .level-item
+                span.tag.is-small.is-rounded.is-info= tag.name

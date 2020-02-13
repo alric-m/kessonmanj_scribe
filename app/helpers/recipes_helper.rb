@@ -3,6 +3,19 @@ module RecipesHelper
     url.blank? ? "https://bulma.io/images/placeholders/128x128.png" : url
   end
 
+  def format_budget budget
+    case budget
+    when "bon marché"
+      "- €"
+    when "Coût moyen"
+      "- €€"
+    when "assez cher"
+      "- €€€"
+    else
+      ""
+    end
+  end
+
   def budget_options
     ["bon marché", "Coût moyen", "assez cher"]
   end
